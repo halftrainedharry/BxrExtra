@@ -5,6 +5,8 @@
  * @package bxrextra
  * @subpackage controllers
  */
+require_once dirname(__FILE__,2) . '/index.class.php';
+
 class BxrExtraHomeManagerController extends BxrExtraBaseManagerController {
     public function process(array $scriptProperties = array()) {
 

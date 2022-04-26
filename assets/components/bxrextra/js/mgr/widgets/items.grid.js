@@ -180,7 +180,7 @@ BxrExtra.window.CreateUpdateItem = function(config) {
     this.ident = config.ident || 'bxrextra-mecitem'+Ext.id();
     Ext.applyIf(config,{
         id: this.ident
-        ,height: 150
+        //,height: 150
         ,width: 475
         ,closeAction: 'close'
         ,url: BxrExtra.config.connectorUrl
