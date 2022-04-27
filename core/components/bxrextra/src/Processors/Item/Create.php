@@ -1,16 +1,27 @@
 <?php
+
+namespace BxrExtra\Processors\Item;
+
+use MODX\Revolution\Processors\Model\CreateProcessor;
+use BxrExtra\Model\BxrExtraItem;
+
 /**
  * Create an Item
  * 
  * @package bxrextra
  * @subpackage processors
  */
-class BxrExtraCreateProcessor extends modObjectCreateProcessor {
-    public $classKey = 'BxrExtraItem';
-    public $languageTopics = array('bxrextra:default');
+class Create extends CreateProcessor
+{
+    public $classKey = BxrExtraItem::class;
+    public $languageTopics = ['bxrextra:default'];
     public $objectType = 'bxrextra.items';
 
-    public function beforeSet(){
+    /** @var BxrExtraItem $object */
+    public $object;
+
+    public function beforeSet()
+    {
         $items = $this->modx->getCollection($this->classKey);
 
         $this->setProperty('position', count($items));
@@ -18,7 +29,8 @@ class BxrExtraCreateProcessor extends modObjectCreateProcessor {
         return parent::beforeSet();
     }
 
-    public function beforeSave() {
+    public function beforeSave()
+    {
         $name = $this->getProperty('name');
 
         if (empty($name)) {
@@ -29,4 +41,4 @@ class BxrExtraCreateProcessor extends modObjectCreateProcessor {
         return parent::beforeSave();
     }
 }
-return 'BxrExtraCreateProcessor';
+
