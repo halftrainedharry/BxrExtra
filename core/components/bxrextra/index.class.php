@@ -1,30 +1,39 @@
 <?php
-require_once dirname(__FILE__) . '/model/bxrextra/bxrextra.class.php';
+
+use MODX\Revolution\modExtraManagerController;
+use BxrExtra\BxrExtra;
+
 /**
  * @package bxrextra
  */
-class IndexManagerController extends BxrExtraBaseManagerController {
-    public static function getDefaultController() { return 'home'; }
-}
-
-abstract class BxrExtraBaseManagerController extends modExtraManagerController {
+abstract class BxrExtraBaseManagerController extends modExtraManagerController
+{
     /** @var BxrExtra $bxrextra */
     public $bxrextra;
-    public function initialize() {
-        $this->bxrextra = new BxrExtra($this->modx);
 
-        $this->addCss($this->bxrextra->config['cssUrl'].'mgr.css');
-        $this->addJavascript($this->bxrextra->config['jsUrl'].'mgr/bxrextra.js');
-        $this->addHtml('<script type="text/javascript">
-        Ext.onReady(function() {
-            BxrExtra.config = '.$this->modx->toJSON($this->bxrextra->config).';
-            BxrExtra.config.connector_url = "'.$this->bxrextra->config['connectorUrl'].'";
-        });
-        </script>');
+    public function initialize()
+    {
+        $this->bxrextra = $this->modx->services->get('bxrextra');
+
+        $this->addCss($this->bxrextra->getOption('cssUrl') . 'mgr.css');
+        $this->addJavascript($this->bxrextra->getOption('jsUrl') . 'mgr/bxrextra.js');
+        $this->addHtml('
+            <script type="text/javascript">
+                Ext.onReady(function() {
+                    BxrExtra.config = ' . $this->modx->toJSON($this->bxrextra->options) . ';
+                });
+            </script>
+        ');
         return parent::initialize();
     }
-    public function getLanguageTopics() {
-        return array('bxrextra:default');
+
+    public function getLanguageTopics()
+    {
+        return ['bxrextra:default'];
     }
-    public function checkPermissions() { return true;}
+
+    public function checkPermissions()
+    {
+        return true;
+    }
 }
