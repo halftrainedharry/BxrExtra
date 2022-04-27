@@ -19,3 +19,4 @@ $_lang['bxrextra.item_remove_confirm'] = 'Are you sure you want to remove this I
 $_lang['bxrextra.item_update'] = 'Update Item';
 $_lang['bxrextra.intro_msg'] = 'Manage your items.';
 $_lang['bxrextra.search...'] = 'Search...';
+$_lang['bxrextra.item_err_ns_name'] = 'Name can\'t be empty';
