@@ -1,9 +1,9 @@
-var BxrExtra = function(config) {
+var bxrextra = function(config) {
     config = config || {};
-    BxrExtra.superclass.constructor.call(this,config);
+    bxrextra.superclass.constructor.call(this, config);
 };
-Ext.extend(BxrExtra,Ext.Component,{
-    page:{},window:{},grid:{},tree:{},panel:{},combo:{},config: {}
+Ext.extend(bxrextra, Ext.Component,{
+    page:{}, window:{}, grid:{}, tree:{}, panel:{}, combo:{}, config: {}
 });
-Ext.reg('bxrextra',BxrExtra);
-BxrExtra = new BxrExtra();
+Ext.reg('bxrextra', bxrextra);
+bxrextra = new bxrextra();
