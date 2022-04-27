@@ -191,11 +191,6 @@ bxrextra.window.CreateUpdateItem = function(config) {
             name: 'description',
             id: this.ident+'-description',
             anchor: '100%'
-        },{
-            xtype: 'textfield',
-            name: 'position',
-            id: this.ident+'-position',
-            hidden: true
         }]
     });
     bxrextra.window.CreateUpdateItem.superclass.constructor.call(this, config);
