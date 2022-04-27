@@ -5,7 +5,7 @@
  * @package bxrextra
  * @subpackage build
  */
-$settings = array();
+$settings = [];
 
 /*
 $settings['gallery.']= $modx->newObject('modSystemSetting');

@@ -9,12 +9,12 @@ if ($object->xpdo) {
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
             $modx =& $object->xpdo;
-            $modelPath = $modx->getOption('bxrextra.core_path',null,$modx->getOption('core_path').'components/bxrextra/').'model/';
-            $modx->addPackage('bxrextra',$modelPath);
+            $modelPath = $modx->getOption('bxrextra.core_path', null, $modx->getOption('core_path') . 'components/bxrextra/') . 'src/';
+            $modx->addPackage('BxrExtra\Model', $modelPath, null, 'BxrExtra\\');
 
             $manager = $modx->getManager();
 
-            $manager->createObjectContainer('BxrExtraItem');
+            $manager->createObjectContainer('BxrExtra\Model\BxrExtraItem');
 
             break;
         case xPDOTransport::ACTION_UPGRADE:
