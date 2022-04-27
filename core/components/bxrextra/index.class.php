@@ -20,7 +20,7 @@ abstract class BxrExtraBaseManagerController extends modExtraManagerController
         $this->addHtml('
             <script type="text/javascript">
                 Ext.onReady(function() {
-                    BxrExtra.config = ' . $this->modx->toJSON($this->bxrextra->options) . ';
+                    bxrextra.config = ' . $this->modx->toJSON($this->bxrextra->options) . ';
                 });
             </script>
         ');

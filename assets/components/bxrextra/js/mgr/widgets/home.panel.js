@@ -19,6 +19,7 @@ bxrextra.panel.Home = function(config) {
                 hideMode: 'offsets',
                 items: [{
                     title: _('bxrextra.items'),
+                    layout: 'form',
                     items: [
                         {
                             html: '<p>' + _('bxrextra.intro_msg') + '</p>',
